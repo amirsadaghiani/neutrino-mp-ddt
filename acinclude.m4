@@ -384,7 +384,7 @@ AC_ARG_WITH(boxtype,
 
 AC_ARG_WITH(boxmodel,
 	AS_HELP_STRING([--with-boxmodel], [valid for coolstream: hd1, hd2])
-AS_HELP_STRING([], [valid for duckbox: ufs910, ufs912, ufs913, ufs922, atevio7500, fortis_hdbox, octagon1008, hs7110, hs7810a, hs7119, hs7819, dp7000, cuberevo, cuberevo_mini, cuberevo_mini2, cuberevo_250hd, cuberevo_2000hd, cuberevo_3000hd, ipbox9900, ipbox99, ipbox55, arivalink200, tf7700, hl101])
+AS_HELP_STRING([], [valid for duckbox: ufs910, ufs912, ufs913, ufs922, atevio7500, fortis_hdbox, octagon1008, hs7110, hs7810a, hs7119, hs7429, hs7819, dp7000, cuberevo, cuberevo_mini, cuberevo_mini2, cuberevo_250hd, cuberevo_2000hd, cuberevo_3000hd, ipbox9900, ipbox99, ipbox55, arivalink200, tf7700, hl101])
 AS_HELP_STRING([], [valid for spark: spark, spark7162])
 AS_HELP_STRING([], [valid for armbox: hd51, hd60, vusolo4k, vuduo4k])
 AS_HELP_STRING([], [valid for mipsbox: vuduo])
@@ -409,7 +409,7 @@ AS_HELP_STRING([], [valid for generic: raspi]),
 				AC_MSG_ERROR([unknown model $withval for boxtype $BOXTYPE])
 			fi
 		;;
-		ufs910|ufs912|ufs913|ufs922|atevio7500|fortis_hdbox|octagon1008|hs7110|hs7810a|hs7119|hs7819|dp7000|cuberevo|cuberevo_mini|cuberevo_mini2|cuberevo_250hd|cuberevo_2000hd|cuberevo_3000hd|ipbox9900|ipbox99|ipbox55|arivalink200|tf7700|hl101)
+		ufs910|ufs912|ufs913|ufs922|atevio7500|fortis_hdbox|octagon1008|hs7110|hs7810a|hs7119|hs7429|hs7819|dp7000|cuberevo|cuberevo_mini|cuberevo_mini2|cuberevo_250hd|cuberevo_2000hd|cuberevo_3000hd|ipbox9900|ipbox99|ipbox55|arivalink200|tf7700|hl101)
 			if test "$BOXTYPE" = "duckbox"; then
 				BOXMODEL="$withval"
 			else
@@ -476,6 +476,7 @@ AM_CONDITIONAL(BOXMODEL_OCTAGON1008, test "$BOXMODEL" = "octagon1008")
 AM_CONDITIONAL(BOXMODEL_HS7110, test "$BOXMODEL" = "hs7110")
 AM_CONDITIONAL(BOXMODEL_HS7810A, test "$BOXMODEL" = "hs7810a")
 AM_CONDITIONAL(BOXMODEL_HS7119, test "$BOXMODEL" = "hs7119")
+AM_CONDITIONAL(BOXMODEL_HS7429, test "$BOXMODEL" = "hs7429")
 AM_CONDITIONAL(BOXMODEL_HS7819, test "$BOXMODEL" = "hs7819")
 AM_CONDITIONAL(BOXMODEL_DP7000, test "$BOXMODEL" = "dp7000")
 
@@ -549,6 +550,8 @@ elif test "$BOXMODEL" = "hs7810a"; then
 	AC_DEFINE(BOXMODEL_HS7810A, 1, [hs7810a])
 elif test "$BOXMODEL" = "hs7119"; then
 	AC_DEFINE(BOXMODEL_HS7119, 1, [hs7119])
+elif test "$BOXMODEL" = "hs7429"; then
+	AC_DEFINE(BOXMODEL_HS7429, 1, [hs7119])
 elif test "$BOXMODEL" = "hs7819"; then
 	AC_DEFINE(BOXMODEL_HS7819, 1, [hs7819])
 elif test "$BOXMODEL" = "dp7000"; then
